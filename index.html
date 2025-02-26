@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAgilizate - Servicios de Consultoría</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <div class="background-image">
+        <img src="/Images/background-image.jpeg" alt="Background">
+    </div>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logopipertstarfinal.svg" class="logo-svg" alt="Logo">
+            </div>
+            <button class="menu-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#redes">Redes Sociales</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h1>Transformamos tu negocio con IA</h1>
+            <p>Soluciones tecnológicas innovadoras para impulsar tu empresa</p>
+        </section>
+
+        <section id="servicios">
+            <h2>Nuestros Servicios</h2>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Desarrollo Web</h3>
+                    <p>Creamos sitios web modernos y responsivos adaptados a tus necesidades</p>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Desarrollo de Bots con IA</h3>
+                    <p>Automatización inteligente para mejorar la eficiencia de tu negocio</p>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Diseño UX/UI</h3>
+                    <p>Interfaces intuitivas y experiencias de usuario excepcionales</p>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-film"></i>
+                    <h3>Producción Multimedial</h3>
+                    <p>Contenido audiovisual de alta calidad para tu marca</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="redes">
+            <h2>Síguenos en Redes Sociales</h2>
+            <div class="redes-sociales">
+                <a href="https://www.instagram.com/iagilizate?igsh=NjVhNjBuMjFxYWl4" class="red-social" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <h2>Contacte con IAgilizate</h2>
+            <form id="contactForm" action="https://formspree.io/f/xbldvqee" method="POST">
+                <div class="form-group">
+                    <input type="text" name="nombre" placeholder="Nombre" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="_replyto" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="telefono" placeholder="Teléfono celular" 
+                           pattern="[0-9]{10}" 
+                           title="Por favor ingrese un número de teléfono válido de 10 dígitos"
+                           required>
+                </div>
+                <div class="form-group">
+                    <select name="servicio">
+                        <option value="">Seleccione un servicio</option>
+                        <option value="web">Desarrollo Web</option>
+                        <option value="bots">Desarrollo de Bots con IA</option>
+                        <option value="uxui">Diseño UX/UI</option>
+                        <option value="multimedia">Producción Multimedial</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+                </div>
+                <input type="hidden" name="_subject" value="Nuevo contacto desde IAgilizate">
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 IAgilizate. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

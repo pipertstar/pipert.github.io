@@ -1,0 +1,543 @@
+:root {
+    --primary-color: #FF6B00; /* Naranja */
+    --secondary-color: #333333; /* Negro */
+    --background-color: #FFFFFF; /* Blanco */
+    --text-color: #FFFFFF;  /* Cambiamos a blanco */
+    --card-bg: rgba(255, 255, 255, 0.2);
+    --card-shadow: rgba(0,0,0,0.1);
+    --form-bg: rgba(255, 255, 255, 0.1);
+    --header-bg: rgba(255, 255, 255, 0.2);
+    --header-text: #FFFFFF;  /* Cambiamos a blanco */
+    --link-color: #FFFFFF;
+    --link-hover: #FF6B00;
+}
+
+[data-theme="dark"] {
+    --primary-color: #FF6B00;
+    --secondary-color: #1A1A1A;
+    --background-color: #1A1A1A;
+    --text-color: #FFFFFF;
+    --text-secondary: #FFFFFF; /* Nuevo color para textos secundarios */
+    --card-bg: #2D2D2D;
+    --card-shadow: rgba(0,0,0,0.3);
+    --form-bg: #2D2D2D;
+    --header-bg: rgba(0, 0, 0, 0.4);
+    --header-text: #FFFFFF;
+    --section-bg: rgba(255, 255, 255, 0.1);
+    --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    --link-color: #FFFFFF;
+    --link-hover: #FF6B00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.2)
+    ); /* Reducimos la opacidad del gradient */
+    z-index: -1;
+}
+
+header {
+    background-color: var(--header-bg);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.8rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0.5rem 1rem;
+}
+
+.logo {
+    margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    border-radius: 15px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    height: 150px;
+}
+
+.logo img, .logo-svg {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    height: 100%; /* Ocupa todo el alto disponible */
+    object-fit: contain; /* Mantiene las proporciones */
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 0.8rem 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+main {
+    margin-top: 180px;
+}
+
+section {
+    padding: 4rem 2rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    margin: 2rem auto;
+    max-width: 1200px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hero-bg.jpg');
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 6rem 2rem;
+    margin-top: -2rem;
+}
+
+#hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.servicio-card {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px var(--card-shadow);
+    transition: transform 0.3s ease;
+}
+
+.servicio-card:hover {
+    transform: translateY(-5px);
+}
+
+.servicio-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.redes-sociales {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.red-social {
+    font-size: 2rem;
+    color: #FFFFFF;
+    opacity: 1;
+    transition: color 0.3s;
+}
+
+.red-social:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+#contacto {
+    background-color: var(--form-bg);
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--card-shadow);
+    border-radius: 5px;
+    background-color: var(--card-bg);
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+textarea {
+    height: 150px;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: opacity 0.3s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+footer {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    text-align: center;
+    padding: 1rem;
+}
+
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #FFFFFF;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Estilos del botón hamburguesa */
+.menu-toggle {
+    display: none; /* Oculto por defecto */
+    background: transparent;
+    border: none;
+    color: var(--header-text);
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+/* Media queries para móvil */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Mostrar en móvil */
+    }
+
+    nav ul {
+        display: none; /* Ocultar menú por defecto */
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--secondary-color);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    nav ul.active {
+        display: flex; /* Mostrar cuando está activo */
+    }
+
+    nav ul li {
+        margin: 1rem 0;
+    }
+
+    nav ul li a {
+        font-size: 1.5rem;
+        color: var(--background-color);
+    }
+
+    .logo {
+        width: 280px;
+        height: 120px;
+        padding: 1rem;
+    }
+
+    .logo img, .logo-svg {
+        width: 250px;
+    }
+}
+
+/* Animación para los elementos del menú */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header-illustration {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 1;
+}
+
+.header-illustration img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.background-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 1; /* Aumentamos la opacidad a 1 */
+    filter: brightness(0.9) contrast(1.1); /* Ajustamos el brillo y contraste */
+}
+
+/* Ajustamos el logo para el tema claro */
+.logo-svg {
+    width: 350px; /* Tamaño específico para el SVG */
+    height: auto;
+    filter: brightness(1.1) contrast(1.2) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    transition: all 0.3s ease;
+}
+
+/* Ajustamos el logo para el tema oscuro */
+[data-theme="dark"] .logo-svg {
+    filter: invert(1)
+           brightness(1.2) 
+           contrast(1.2) 
+           drop-shadow(0 2px 4px rgba(255, 255, 255, 0.2))
+           hue-rotate(180deg);
+}
+
+/* Ajustamos el contenedor del logo en tema oscuro */
+[data-theme="dark"] .logo {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Mejoramos el contraste de las secciones en modo oscuro */
+[data-theme="dark"] section {
+    background-color: var(--section-bg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] section h2 {
+    color: #FFFFFF;
+    text-shadow: var(--text-shadow);
+}
+
+/* Mejoramos el contraste de las tarjetas de servicios en modo oscuro */
+[data-theme="dark"] .servicio-card {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .servicio-card h3,
+[data-theme="dark"] .servicio-card p {
+    color: #FFFFFF;
+}
+
+/* Mejoramos el contraste de los iconos de redes sociales */
+[data-theme="dark"] .red-social {
+    color: #FFFFFF;
+    opacity: 0.9;
+}
+
+[data-theme="dark"] .red-social:hover {
+    color: var(--primary-color);
+    opacity: 1;
+}
+
+/* Mejoramos el contraste de los textos en general */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3 {
+    color: #FFFFFF;
+    text-shadow: var(--text-shadow);
+}
+
+[data-theme="dark"] p {
+    color: #E0E0E0;
+}
+
+/* Mejoramos el contraste de los textos en modo oscuro */
+[data-theme="dark"] {
+    --text-color: #FFFFFF;
+    --text-secondary: #FFFFFF; /* Nuevo color para textos secundarios */
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] a {
+    color: #FFFFFF;
+    text-shadow: var(--text-shadow);
+}
+
+/* Ajustamos las tarjetas de servicios en modo oscuro */
+[data-theme="dark"] .servicio-card {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .servicio-card h3,
+[data-theme="dark"] .servicio-card p {
+    color: #FFFFFF;
+}
+
+/* Ajustamos los iconos y enlaces en modo oscuro */
+[data-theme="dark"] .red-social,
+[data-theme="dark"] .servicio-card i {
+    color: #FFFFFF;
+}
+
+[data-theme="dark"] .red-social:hover,
+[data-theme="dark"] nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Ajustamos el formulario en modo oscuro */
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+    color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Ajustamos los enlaces y textos en modo oscuro */
+[data-theme="dark"] nav ul li a {
+    color: #FFFFFF;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] nav ul li a:hover {
+    color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Ajustamos los iconos de servicios en modo oscuro */
+[data-theme="dark"] .servicio-card i {
+    color: var(--primary-color);
+}
+
+/* Ajustamos los iconos de redes sociales en modo oscuro */
+[data-theme="dark"] .red-social {
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+[data-theme="dark"] .red-social:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* Ajustamos los textos en modo oscuro */
+[data-theme="dark"] .servicio-card h3,
+[data-theme="dark"] .servicio-card p,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] p,
+[data-theme="dark"] li {
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Ajustamos los textos en modo claro */
+.servicio-card h3,
+.servicio-card p,
+h1, h2, h3, p, li {
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Ajustamos los iconos de servicios */
+.servicio-card i {
+    color: var(--primary-color);
+}
+
+/* Ajustamos el formulario */
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
